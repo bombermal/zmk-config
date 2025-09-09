@@ -27,6 +27,20 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+        under_brig_encoder: under_brig_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "UNDER_BRIG_ENCODER";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+        };
+
+        rgb_brig_encoder: rgb_brig_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "RGB_BRIG_ENCODER";
+            #sensor-binding-cells = <0>;
+            bindings = <&bl BL_INC>, <&bl BL_DEC>;
+        };
     };
 
     combos {
@@ -60,7 +74,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        Letters {
+        letters {
             // ------------------------------------------------------------------------------------------------------------
             // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
             // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   -   |
@@ -81,7 +95,7 @@
                 <&inc_dec_kp C_NEXT C_PREVIOUS>;
         };
 
-        FSymbols {
+        f_symbols {
             // ------------------------------------------------------------------------------------------------------------
             // | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
             // |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
@@ -98,7 +112,7 @@
             >;
 
             sensor-bindings =
-                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
+                <&inc_dec_kp C_BRI_INC C_BRI_DEC>,
                 <&inc_dec_kp PG_UP PG_DN>;
         };
 
@@ -118,9 +132,7 @@
                                                  &trans          &to 0            &trans        &trans    &trans  &trans           &trans           &trans
             >;
 
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp C_BRI_UP C_BRI_DN>;
+            sensor-bindings = <&rgb_brig_encoder>, <&under_brig_encoder>;
         };
 
         extra1 { status = "reserved"; };
