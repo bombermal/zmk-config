@@ -5,6 +5,7 @@
  */
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
@@ -40,13 +41,18 @@
             bindings = <&kp RSHIFT>;
             key-positions = <31 32>;
         };
+
+        CB {
+            bindings = <&mo 2>;
+            key-positions = <19 20>;
+        };
     };
 
     macros {
         sql_macro: sql_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LS(S) &kp LS(E) &kp LS(L) &kp LS(E) &kp LS(C) &kp LS(T) &kp SPACE &kp STAR &kp SPACE &kp LS(F) &kp LS(R) &kp LS(O) &kp LS(M) &kp SPACE &kp T &kp A &kp B &kp L &kp E &kp SPACE &kp LS(W) &kp LS(H) &kp LS(E) &kp LS(R) &kp LS(E) &kp SPACE &kp LS(T) &kp LS(R) &kp LS(U) &kp LS(E)>;
+            bindings = <&kp LS(S) &kp LS(E) &kp LS(L) &kp LS(E) &kp LS(C) &kp LS(T) &kp ENTER &kp TAB &kp STAR &kp ENTER &kp LS(F) &kp LS(R) &kp LS(O) &kp LS(M) &kp ENTER &kp TAB &kp T &kp A &kp B &kp L &kp E &kp ENTER &kp LS(W) &kp LS(H) &kp LS(E) &kp LS(R) &kp LS(E) &kp ENTER &kp TAB &kp LS(T) &kp LS(R) &kp LS(U) &kp LS(E)>;
             label = "SQL_MACRO";
         };
     };
@@ -84,11 +90,11 @@
             //                     |      |      |      |        |  |       |      |       |       |
 
             bindings = <
-&kp ESC  &kp F1    &kp F2          &kp F3          &kp F4           &kp F5                            &kp F6         &kp F7         &kp F8                &kp F9                 &kp F10     &kp DELETE
-&trans   &mkp MB3  &mkp MB2        &mmv MOVE_UP    &mkp MB1         &msc SCRL_UP                      &kp HOME       &kp END        &trans                &trans                 &kp F11     &kp F12
-&trans   &trans    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN                    &kp MINUS      &kp LS(EQUAL)  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &sql_macro  &trans
-&trans   &trans    &msc SCRL_LEFT  &trans          &msc SCRL_RIGHT  &trans          &trans    &trans  &kp LS(MINUS)  &kp EQUAL      &kp LS(LEFT_BRACKET)  &kp LS(RIGHT_BRACKET)  &trans      &trans
-                                   &trans          &to 2            &trans          &trans    &trans  &trans         &trans         &trans
+&kp ESC  &kp F1  &kp F2          &kp F3          &kp F4           &kp F5                    &kp F6         &kp F7         &kp F8                &kp F9                 &kp F10     &kp DELETE
+&trans   &trans  &trans          &kp UP_ARROW    &trans           &trans                    &kp HOME       &kp END        &trans                &trans                 &kp F11     &kp F12
+&trans   &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans                    &kp MINUS      &kp LS(EQUAL)  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &sql_macro  &trans
+&trans   &trans  &trans          &trans          &trans           &trans  &trans    &trans  &kp LS(MINUS)  &kp EQUAL      &kp LS(LEFT_BRACKET)  &kp LS(RIGHT_BRACKET)  &trans      &trans
+                                 &trans          &to 2            &trans  &trans    &trans  &trans         &trans         &trans
             >;
 
             sensor-bindings =
@@ -105,16 +111,16 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                       &rgb_ug RGB_TOG                  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &rgb_ug RGB_EFF
-&ext_power EP_TOG  &trans        &trans        &trans        &trans        &rgb_ug RGB_EFF                    &trans                           &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &rgb_ug RGB_EFR
-&out OUT_TOG       &trans        &trans        &trans        &trans        &trans                             &rgb_ug RGB_COLOR_HSB(0,100,50)  &trans           &trans           &trans           &trans           &trans
-&trans             &trans        &trans        &trans        &trans        &trans           &trans    &trans  &trans                           &trans           &trans           &trans           &trans           &trans
-                                               &trans        &to 0         &trans           &trans    &trans  &trans                           &trans           &trans
+&bt BT_CLR         &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3     &bt BT_SEL 4                    &rgb_ug RGB_TOG  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &rgb_ug RGB_EFF
+&ext_power EP_TOG  &mkp MB3      &mkp MB2        &mmv MOVE_UP    &mkp MB1         &trans                          &trans           &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &rgb_ug RGB_EFR
+&out OUT_TOG       &trans        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                          &bl BL_TOG       &bl BL_CYCLE     &trans           &bl BL_INC       &trans           &trans
+&trans             &trans        &msc SCRL_LEFT  &trans          &msc SCRL_RIGHT  &trans        &trans    &trans  &trans           &trans           &trans           &bl BL_DEC       &trans           &trans
+                                                 &trans          &to 0            &trans        &trans    &trans  &trans           &trans           &trans
             >;
 
             sensor-bindings =
                 <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
+                <&inc_dec_kp C_BRI_UP C_BRI_DN>;
         };
 
         extra1 { status = "reserved"; };
