@@ -13,16 +13,6 @@ if SHIELD_LILY58_LEFT || SHIELD_LILY58_RIGHT
 config ZMK_SPLIT
     default y
 
-if ZMK_DISPLAY
-
-config I2C
-    default y
-
-config SSD1306
-    default y
-
-endif # ZMK_DISPLAY
-
 if LVGL
 
 config LV_Z_VDB_SIZE
@@ -39,21 +29,5 @@ choice LV_COLOR_DEPTH
 endchoice
 
 endif # LVGL
-
-if ZMK_BACKLIGHT
-
-config PWM
-    default y
-
-config LED_PWM
-    default y
-
-endif # ZMK_BACKLIGHT
-
-if ZMK_RGB_UNDERGLOW
-
-config WS2812_STRIP
-    default y
-endif # ZMK_RGB_UNDERGLOW
 
 endif
