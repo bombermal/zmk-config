@@ -48,8 +48,7 @@
             bindings = <&mo>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <190>;
-            flavor = "tap-preferred";
+            tapping-term-ms = <5>;
         };
     };
 
@@ -107,11 +106,11 @@
             //                     |      |      |      |        |  |       |      |       |       |
 
             bindings = <
-&kp ESC  &kp F1    &kp F2             &kp F3             &kp F4            &kp F5                    &kp F6         &kp F7         &kp F8                &kp F9                 &kp F10  &kp DELETE
-&trans   &mkp MB3  &mkp RCLK          &mmv MOVE_Y(100)   &mkp MB1          &trans                    &kp HOME       &kp END        &trans                &trans                 &kp F11  &kp F12
-&trans   &trans    &mmv MOVE_X(-100)  &mmv MOVE_Y(-100)  &mmv MOVE_X(100)  &trans                    &kp MINUS      &kp LS(EQUAL)  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans   &trans
-&to 2    &trans    &msc SCRL_LEFT     &trans             &msc SCRL_RIGHT   &trans  &trans    &trans  &kp LS(MINUS)  &kp EQUAL      &kp LS(LEFT_BRACKET)  &kp LS(RIGHT_BRACKET)  &trans   &to 0
-                                      &trans             &trans            &trans  &trans    &trans  &trans         &trans         &trans
+&kp ESC  &kp F1    &kp F2          &kp F3          &kp F4            &kp F5                    &kp F6         &kp F7         &kp F8                &kp F9                 &kp F10  &kp DELETE
+&trans   &trans    &trans          &kp UP_ARROW    &trans            &trans                    &kp HOME       &kp END        &trans                &trans                 &kp F11  &kp F12
+&trans   &trans    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW   &trans                    &kp MINUS      &kp LS(EQUAL)  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans   &trans
+&to 2    &trans    &trans          &trans          &trans            &trans  &trans    &trans  &kp LS(MINUS)  &kp EQUAL      &kp LS(LEFT_BRACKET)  &kp LS(RIGHT_BRACKET)  &trans   &to 0
+                                   &trans          &trans            &trans  &trans    &trans  &trans         &trans         &trans
             >;
 
             sensor-bindings =
@@ -130,11 +129,11 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR         &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3     &bt BT_SEL 4                    &rgb_ug RGB_ON   &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &rgb_ug RGB_EFF
-&ext_power EP_TOG  &trans        &trans          &kp UP_ARROW    &trans           &trans                          &rgb_ug RGB_OFF  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &rgb_ug RGB_EFR
-&out OUT_TOG       &trans        &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans                          &bl BL_ON        &bl BL_CYCLE     &trans           &bl BL_INC       &trans           &trans
-&to 0              &trans        &trans          &trans          &trans           &trans        &trans    &trans  &bl BL_OFF       &trans           &trans           &bl BL_DEC       &trans           &to 1
-                                                 &trans          &trans           &trans        &trans    &trans  &trans           &trans           &trans
+&bt BT_CLR         &bt BT_SEL 0  &bt BT_SEL 1        &bt BT_SEL 2       &bt BT_SEL 3      &bt BT_SEL 4                   &rgb_ug RGB_ON   &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &rgb_ug RGB_EFF
+&ext_power EP_TOG  &mkp MB3      &mkp RCLK           &mmv MOVE_Y(100)   &mkp MB1          &trans                         &rgb_ug RGB_OFF  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &rgb_ug RGB_EFR
+&out OUT_TOG       &trans        &mmv MOVE_X(-100)   &mmv MOVE_Y(-100)  &mmv MOVE_X(100)  &trans                         &bl BL_ON        &bl BL_CYCLE     &trans           &bl BL_INC       &trans           &trans
+&to 0              &trans        &msc SCRL_LEFT      &trans             &msc SCRL_RIGHT   &trans       &trans    &trans  &bl BL_OFF       &trans           &trans           &bl BL_DEC       &trans           &to 1
+                                                     &trans             &trans            &trans       &trans    &trans  &trans           &trans           &trans
             >;
 
             sensor-bindings = <&rgb_brig_encoder>, <&under_brig_encoder>;
