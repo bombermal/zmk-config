@@ -9,6 +9,8 @@ features:
   - keys
   - display
   - studio
+  - encoder
+  - underglow
 siblings:
   - lily58_left
   - lily58_right
