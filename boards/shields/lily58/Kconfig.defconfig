@@ -17,11 +17,11 @@ config ZMK_RGB_UNDERGLOW
     select WS2812_STRIP
     select SPI
 
-config PWM
-    default y
+# config PWM
+#     default y
 
-config LED_PWM
-    default y
+# config LED_PWM
+#     default y
 
 config ZMK_DISPLAY
 
