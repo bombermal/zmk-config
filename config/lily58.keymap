@@ -110,7 +110,7 @@
                 <&inc_dec_kp C_NEXT C_PREVIOUS>;
         };
 
-        mouse_symbols {
+        arrow_symbols {
             // ------------------------------------------------------------------------------------------------------------
             // | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
             // |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
@@ -130,7 +130,7 @@
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>,
                 <&inc_dec_kp C_BRI_UP C_BRI_DN>;
 
-            label = "MSymbols";
+            label = "Arrows";
         };
 
         adjust_layer {
@@ -151,7 +151,7 @@
 
             sensor-bindings = <&rgb_brig_encoder>, <&under_brig_encoder>;
 
-            label = "Adjust";
+            label = "Mouse/RGB";
         };
     };
 };
