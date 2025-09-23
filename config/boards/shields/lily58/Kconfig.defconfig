@@ -13,24 +13,12 @@ if SHIELD_LILY58_LEFT || SHIELD_LILY58_RIGHT
 config ZMK_SPLIT
     default y
 
-# config ZMK_RGB_UNDERGLOW
-#     select WS2812_STRIP
-#     select SPI
-
-# config PWM
-#     default y
-
-# config LED_PWM
-#     default y
-
-config ZMK_DISPLAY
-
 if ZMK_DISPLAY
 
-config SSD1306
+config I2C
     default y
 
-config I2C
+config SSD1306
     default y
 
 endif # ZMK_DISPLAY
