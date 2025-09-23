@@ -28,7 +28,7 @@
 / {
     chosen {
         zmk,battery = &vbatt;
-        zmk,kscan = &kscan;
+        zmk,kscan = &kscan0;
     };
 
     vbatt: vbatt {
