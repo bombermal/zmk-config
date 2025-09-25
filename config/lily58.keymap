@@ -131,7 +131,7 @@
 &trans   &trans  &trans          &kp UP_ARROW    &trans           &kp PAGE_UP                      &trans         &trans         &trans                &trans                 &kp F11  &kp F12
 &trans   &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PAGE_DOWN                    &kp MINUS      &kp LS(EQUAL)  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans   &trans
 &to 3    &trans  &kp HOME        &trans          &kp END          &trans         &trans    &trans  &kp LS(MINUS)  &kp EQUAL      &kp LS(LEFT_BRACKET)  &kp LS(RIGHT_BRACKET)  &trans   &to 1
-                                 &trans          &trans           &trans         &trans    &trans  &trans
+                                 &trans          &trans           &trans         &trans    &trans  &trans   &trans  &trans
             >;
 
             sensor-bindings =
