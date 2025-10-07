@@ -51,6 +51,19 @@
             #binding-cells = <2>;
             tapping-term-ms = <150>;
         };
+
+        turn_off_layer: turn_off_layer {
+            compatible = "zmk,behavior-toggle-layer";
+            label = "TURN_OFF_LAYER";
+            #binding-cells = <1>;
+            toggle-mode = "off";
+        };
+
+        turn_on_layer: turn_on_layer {
+            compatible = "zmk,behavior-toggle-layer";
+            label = "TURN_ON_LAYER";
+            #binding-cells = <1>;
+        };
     };
 
     combos {
@@ -74,6 +87,22 @@
         CB_l2 {
             bindings = <&kp ESC>;
             key-positions = <16 15>;
+        };
+    };
+
+    macros {
+        macos_macro: macos_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1 &to 1 &turn_off_layer 0 &rgb_ug RGB_COLOR_HSB(268,100,31)>;
+            label = "MACOS_MACRO";
+        };
+
+        win_bt1_macro: win_bt1_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0 &to 0 &turn_off_layer 1 &rgb_ug RGB_EFF>;
+            label = "WIN_BT1_MACRO";
         };
     };
 
@@ -129,9 +158,9 @@
             bindings = <
 &kp ESC  &kp F1  &kp F2          &kp F3          &kp F4           &kp F5                           &kp F6         &kp F7         &kp F8                &kp F9                 &kp F10  &kp DELETE
 &trans   &trans  &trans          &kp UP_ARROW    &trans           &kp PAGE_UP                      &trans         &trans         &trans                &trans                 &kp F11  &kp F12
-&trans   &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PAGE_DOWN                    &kp MINUS      &kp LS(EQUAL)  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans   &trans
-&to 3    &trans  &kp HOME        &trans          &kp END          &trans         &trans    &trans  &kp LS(MINUS)  &kp EQUAL      &kp LS(LEFT_BRACKET)  &kp LS(RIGHT_BRACKET)  &trans   &to 1
-                                 &trans          &trans           &trans         &trans    &trans  &trans   &trans  &trans
+&trans   &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PAGE_DOWN                    &kp MINUS      &kp EQUAL      &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans   &trans
+&to 3    &trans  &kp HOME        &trans          &kp END          &trans         &trans    &trans  &kp LS(MINUS)  &kp LS(EQUAL)  &kp LS(LEFT_BRACKET)  &kp LS(RIGHT_BRACKET)  &trans   &to 1
+                                 &trans          &trans           &trans         &trans    &trans  &kp LEFT_ALT   &kp LCTRL      &trans
             >;
 
             sensor-bindings =
@@ -150,10 +179,10 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR         &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3     &bt BT_SEL 4                      &rgb_ug RGB_ON   &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &rgb_ug RGB_EFF
-&ext_power EP_TOG  &mkp MB3      &mkp MB2        &mmv MOVE_UP    &mkp MB1         &msc SCRL_UP                      &rgb_ug RGB_OFF  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &rgb_ug RGB_EFR
-&out OUT_TOG       &trans        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN                    &bl BL_ON        &bl BL_CYCLE     &trans           &bl BL_INC       &trans           &trans
-&to 0              &trans        &msc SCRL_LEFT  &trans          &msc SCRL_RIGHT  &trans          &trans    &trans  &bl BL_OFF       &trans           &trans           &bl BL_DEC       &trans           &to 2
+&bt BT_CLR         &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3     &bt BT_SEL 4                      &trans           &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF  &rgb_ug RGB_SPI  &rgb_ug RGB_COLOR_HSB(0,94,50)
+&ext_power EP_TOG  &mkp MB3      &mkp MB2        &mmv MOVE_UP    &mkp MB1         &msc SCRL_UP                      &rgb_ug RGB_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_EFR  &rgb_ug RGB_SPD  &rgb_ug RGB_COLOR_HSB(280,100,50)
+&out OUT_TOG       &trans        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN                    &tog 0           &trans           &trans           &trans           &trans           &rgb_ug RGB_COLOR_HSB(0,0,100)
+&to 0              &trans        &msc SCRL_LEFT  &trans          &msc SCRL_RIGHT  &trans          &trans    &trans  &tog 1           &trans           &trans           &trans           &trans           &to 2
                                                  &trans          &trans           &trans          &trans    &trans  &trans           &trans           &trans
             >;
 
