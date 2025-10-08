@@ -94,15 +94,36 @@
         mac_bt1_macro: mac_bt1_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 1 &to 1 &turn_off_layer 0 &rgb_ug RGB_COLOR_HSB(268,100,31)>;
+            bindings = <&bt BT_SEL 1 &to 1 &rgb_ug RGB_COLOR_HSB(268,100,31)>;
             label = "MAC_BT1_MACRO";
         };
 
         win_bt0_macro: win_bt0_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0 &to 0 &turn_off_layer 1 &rgb_ug RGB_EFF>;
+            bindings = <&bt BT_SEL 0 &to 0 &rgb_ug RGB_COLOR_HSB(0,100,50)>;
             label = "WIN_BT0_MACRO";
+        };
+
+        win_bt2_macro: win_bt2_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2 &to 0 &rgb_ug RGB_COLOR_HSB(235,100,50)>;
+            label = "WIN_BT2_MACRO";
+        };
+
+        win_bt3_macro: win_bt3_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 3 &to 0 &rgb_ug RGB_COLOR_HSB(116,100,50)>;
+            label = "WIN_BT3_MACRO";
+        };
+
+        win_bt4_macro: win_bt4_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 4 &to 0 &rgb_ug RGB_COLOR_HSB(66,100,50)>;
+            label = "WIN_BT4_MACRO";
         };
     };
 
@@ -179,10 +200,10 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR         &win_bt0_macro  &mac_bt1_macro  &bt BT_SEL 2    &bt BT_SEL 3     &bt BT_SEL 4                      &trans           &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF  &rgb_ug RGB_SPI  &rgb_ug RGB_COLOR_HSB(0,94,50)
+&bt BT_CLR         &win_bt0_macro  &mac_bt1_macro  &win_bt2_macro  &win_bt3_macro   &win_bt4_macro                    &trans           &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF  &rgb_ug RGB_SPI  &rgb_ug RGB_COLOR_HSB(0,94,50)
 &ext_power EP_TOG  &mkp MB3        &mkp MB2        &mmv MOVE_UP    &mkp MB1         &msc SCRL_UP                      &rgb_ug RGB_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_EFR  &rgb_ug RGB_SPD  &rgb_ug RGB_COLOR_HSB(280,100,50)
-&out OUT_TOG       &trans          &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN                    &tog 0           &trans           &trans           &trans           &trans           &rgb_ug RGB_COLOR_HSB(0,0,100)
-&to 0              &trans          &msc SCRL_LEFT  &trans          &msc SCRL_RIGHT  &trans          &trans    &trans  &tog 1           &trans           &trans           &trans           &trans           &to 2
+&out OUT_TOG       &trans          &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN                    &trans           &trans           &trans           &trans           &trans           &rgb_ug RGB_COLOR_HSB(0,0,100)
+&to 0              &trans          &msc SCRL_LEFT  &trans          &msc SCRL_RIGHT  &trans          &trans    &trans  &trans           &trans           &trans           &trans           &trans           &to 2
                                                    &trans          &trans           &trans          &trans    &trans  &trans           &trans           &trans
             >;
 
